@@ -14,7 +14,6 @@ export default {
       base: '',
     },
     appDir: 'app',
-    trailingSlash: 'always'
   }
 };
 
