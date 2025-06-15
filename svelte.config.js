@@ -1,13 +1,20 @@
 import adapter from '@sveltejs/adapter-static';
- 
-const config = {
-	kit: {
-		adapter: adapter({
-			fallback: '404.html'
-		})
-	},
+
+const dev = process.argv.includes('dev');
+
+export default {
+  kit: {
+    adapter: adapter({
+      pages: 'build',
+      assets: 'build',
+      fallback: null,
+      precompress: false
+    }),
+    paths: {
+      base: '',
+    },
+    appDir: 'app',
+    trailingSlash: 'always'
+  }
 };
- 
-config.paths = { base: process.argv.includes('dev') ? '' : "/joshuafouch.github.io" }
- 
-export default config;
+
